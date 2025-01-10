@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap");
+
+/* App.css */
+body {
+  margin: 0;
+  font-family: "Cutive Mono", serif;
+  background-color: black; /* Black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevent scrolling */
+}
+.scramble-container {
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.scramble-text {
+  font-size: 28px;
+  font-weight: lighter;
+  color: white;
+  margin: 0;
+  text-transform: lowercase;
+}
+.letter {
+  display: inline-block; /* Allow animation on individual letters */
+  opacity: 1; /* Default to visible */
+  transition: opacity 0.4s ease; /* Smooth animation for hiding */
+}
+.letter.hidden {
+  opacity: 0; /* Hidden state */
+}
+
+.letter.visible {
+  opacity: 1; /* Visible state */
+}
