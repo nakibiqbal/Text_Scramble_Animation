@@ -5,13 +5,13 @@ import "./App.css";
 const ScrambleText = () => {
   const textRefs = useRef([]); // References for each text container
   const phrases = [
-    "system error",
-    "system error",
-    "system error",
-    "system error",
-    "system error",
+    "System Error",
+    "System Error",
+    "System Error",
+    "System Error",
+    "System Error",
   ]; // The texts
-  const chars = "!@#$%^&*()-_=+[]{}|;:,.<>?"; // Scramble characters
+  const chars = "$\u00A0[\u00A0$\u00A0*\u00A0$\u00A0#\u00A0$\u00A0!\u00A0$\u00A0<\u00A00\u00A0/\u00A00\u00A0>\u00A0$\u00A0!\u00A0$\u00A0#\u00A0$\u00A0*\u00A0$\u00A0]\u00A0$"; // Scramble characters
 
   const startAnimation = (index) => {
     const textRef = textRefs.current[index]; // Get reference for the specific text
@@ -34,7 +34,7 @@ const ScrambleText = () => {
         setTimeout(() => {
           span.classList.remove("hidden");
           span.classList.add("visible");
-        }, idx * 50); // Reduced delay for faster appearance
+        }, idx * 20); // Reduced delay for faster appearance
       });
     };
 
@@ -57,7 +57,7 @@ const ScrambleText = () => {
             clearInterval(scrambleInterval);
             resolve(); // Resolve when scrambling is complete
           }
-        }, 50); // Reduced interval for faster scrambling
+        }, 50); // Use the passed duration for interval timing of scrambleText
       });
     };
 
@@ -85,7 +85,7 @@ const ScrambleText = () => {
     // Sequential execution of animations
     const runSequence = async () => {
       showText();
-      await new Promise((res) => setTimeout(res, letters.length * 50 + 400)); // Reduced wait for showing
+      await new Promise((res) => setTimeout(res, letters.length * 20 + 100)); // Reduced wait for showing
       await scrambleText();
       await hideText();
     };
@@ -96,12 +96,11 @@ const ScrambleText = () => {
   useEffect(() => {
     const tl = gsap.timeline({
       repeat: -1, // Infinite repeat
-      repeatDelay: 3, // Reduced delay between cycles
+      repeatDelay: 2, // Reduced delay between cycles
     });
 
-    // Add animations sequentially for each phrase
     phrases.forEach((_, index) => {
-      tl.add(() => startAnimation(index), index * 0.5); // Slightly overlapping animations
+      tl.add(() => startAnimation(index), index * 0.25); // Slightly overlapping animations
     });
   }, []);
 

@@ -21,9 +21,9 @@ body {
 .scramble-text {
   font-size: 28px;
   font-weight: lighter;
-  color: white;
-  margin: 0;
-  text-transform: lowercase;
+  color: rgb(1, 255, 1);
+  margin: 2px;
+  /* text-transform: capitalize; */
 }
 .letter {
   display: inline-block; /* Allow animation on individual letters */
@@ -31,9 +31,8 @@ body {
   transition: opacity 0.4s ease; /* Smooth animation for hiding */
 }
 .letter.hidden {
-  opacity: 0; /* Hidden state */
+  visibility: hidden; /* Hidden state */
 }
-
 .letter.visible {
-  opacity: 1; /* Visible state */
+  visibility: visible; /* Visible state */
 }
